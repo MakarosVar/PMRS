@@ -1,0 +1,204 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Enter a new Company</mat-card-title>
+  </mat-card-header>
+  <form (ngSubmit)="onSaveComp(CForm)" #CForm="ngForm">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-5">
+        <mat-form-field hideRequiredMarker>
+          <input
+          matInput
+          type="text"
+          id="name"
+          placeholder="Company Name"
+          ngModel
+          name="name"
+          required
+          #name="ngModel">
+          <mat-error *ngIf="name.invalid">Please enter a Company Name</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-lg-5">
+        <mat-form-field hideRequiredMarker>
+          <input
+          matInput
+          type="number"
+          id="size"
+          min="1"
+          placeholder="Total IT employees"
+          ngModel
+          name="size"
+          required
+          #size="ngModel">
+          <mat-error *ngIf="size.invalid">Please enter the Company size</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="info">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-4 col-xl-3" style="display:flex;flex-wrap:wrap;justify-content:center;">
+          <mat-selection-list name="sector" required ngModel #sector="ngModel">
+            <h3 mat-subheader style="display:flex;flex-wrap:wrap;justify-content:center;">Select IT Sector</h3>
+            <mat-list-option checkboxPosition="before" color='primary' value='Software'>
+              Software
+            </mat-list-option>
+            <mat-list-option checkboxPosition="before" color='primary' value='Telecom services'>
+              Telecom services
+            </mat-list-option>
+            <mat-list-option checkboxPosition="before" color='primary' value='Tech services'>
+              IT services
+            </mat-list-option>
+            <mat-list-option checkboxPosition="before" color='primary' value='Hardware'>
+              Hardware
+            </mat-list-option>
+            <mat-list-option checkboxPosition="before" color='primary' value='Emerging Tech'>
+              Emerging Technologies
+            </mat-list-option>
+            <mat-error class="selection-error" *ngIf="sector.invalid && (CForm.submitted || sector.touched)">Please select at least one IT Sector</mat-error>
+          </mat-selection-list>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 col-xl-5">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Financials</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="Financials"
+                (input)="onFInputChange($event)"
+                [color]='fSlide'
+                tickInterval="1"
+                ngModel
+                required
+                step="1" min="0" max="100"
+                #Financials="ngModel"
+                ></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(Financials.invalid || Financials.value===0) && (CForm.submitted || Financials.touched || Financials.dirty)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="fColor">{{f}}</mat-label>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Company Vision</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="Vision"
+                (input)="onVInputChange($event)"
+                [color]='vSlide'
+                tickInterval="1"
+                ngModel
+                required
+                step="1" min="0" max="100"
+                #Vision="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(Vision.invalid || Vision.value===0) && (CForm.submitted || Vision.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="vColor">{{v}}</mat-label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Organisational Culture</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="Culture"
+                (input)="onCInputChange($event)"
+                [color]="cSlide"
+                tickInterval="1"
+                ngModel
+                required
+                step="1" min="0" max="100"
+                #Culture="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(Culture.invalid || Culture.value===0) && (CForm.submitted || Culture.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="cColor">{{c}}</mat-label>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Work Environment</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="Environment"
+                (input)="onEnvInputChange($event)"
+                [color]="envSlide"
+                ngModel
+                required
+                tickInterval="1"
+                step="1" min="0" max="100"
+                #Environment="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(Environment.invalid || Environment.value===0) && (CForm.submitted || Environment.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="envColor">{{env}}</mat-label>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 col-xl-3">
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-lg-4 col-xl-12">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Change Management Practices</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="ChangeMngmnt"
+                (input)="onChInputChange($event)"
+                [color]="chSlide"
+                ngModel
+                required
+                tickInterval="1"
+                step="1" min="0" max="100"
+                #ChangeMngmnt="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(ChangeMngmnt.invalid || ChangeMngmnt.value===0) && (CForm.submitted || ChangeMngmnt.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="chColor">{{ch}}</mat-label>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-4 col-xl-12">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Top Management Commitment</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="TopMCommitment"
+                (input)="onTmcInputChange($event)"
+                [color]="tmcSlide"
+                ngModel
+                required
+                tickInterval="1"
+                step="1" min="0" max="100"
+                #TopMCommitment="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(TopMCommitment.invalid || TopMCommitment.value===0) && (CForm.submitted || TopMCommitment.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="tmcColor">{{tmc}}</mat-label>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-4 col-xl-12">
+              <div class="row" style="display:flex;flex-wrap:wrap;justify-content:center;">
+                <mat-label>Executives' IT Education level</mat-label>
+              </div>
+              <div class="row">
+                <mat-slider
+                name="ExITEdu"
+                (input)="onEitInputChange($event)"
+                [color]="eitSlide"
+                ngModel
+                required
+                tickInterval="1"
+                step="1" min="0" max="100"
+                #ExITEdu="ngModel"></mat-slider>
+              </div>
+              <mat-error class="selection-error" *ngIf="(ExITEdu.invalid || ExITEdu.value===0) && (CForm.submitted || ExITEdu.touched)">Please enter a value</mat-error>
+              <mat-label class="slider-text" [style.color]="eitColor">{{eit}}</mat-label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<mat-toolbar>
+  <span class="submit"></span>
+  <button mat-raised-button color="primary" type="submit">Save Company</button>
+</mat-toolbar>
+</form>
+</mat-card>

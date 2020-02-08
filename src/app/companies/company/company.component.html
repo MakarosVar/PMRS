@@ -1,0 +1,92 @@
+<mat-card>
+  <mat-card-header>
+    <span class='spacer'></span>
+    <mat-card-actions>
+      <a mat-button color="primary" [routerLink]="['/edit']">EDIT</a>
+      <button mat-button color="warn">DELETE</button>
+    </mat-card-actions>
+    <mat-card-title> Company Name: {{this.Compny.name}}</mat-card-title>
+    <mat-card-subtitle>{{this.Compny.sector}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6 col-xl-4">
+        <h6>Total Employees: {{this.Compny.size}} </h6>
+        <br>
+        <div [ngSwitch]="this.Compny.Financials">
+          <h6 *ngSwitchCase="1">Financials : Recession</h6>
+          <h6 *ngSwitchCase="2">Financials : Downbeat</h6>
+          <h6 *ngSwitchCase="3">Financials : Stable</h6>
+          <h6 *ngSwitchCase="4">Financials : Growth</h6>
+          <h6 *ngSwitchCase="5">Financials : Expansion</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.Vision">
+          <h6 *ngSwitchCase="1">Vision : No Vision</h6>
+          <h6 *ngSwitchCase="2">Vision : Not Clear</h6>
+          <h6 *ngSwitchCase="3">Vision : Informal</h6>
+          <h6 *ngSwitchCase="4">Vision : Somewhat Defined</h6>
+          <h6 *ngSwitchCase="5">Vision : Defined well</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.Culture">
+          <h6 *ngSwitchCase="1">Organizational Culture : Resistant to Change</h6>
+          <h6 *ngSwitchCase="2">Organizational Culture : Slightly Rigid</h6>
+          <h6 *ngSwitchCase="3">Organizational Culture : Moderate</h6>
+          <h6 *ngSwitchCase="4">Organizational Culture : Slightly Adaptive</h6>
+          <h6 *ngSwitchCase="5">Organizational Culture : Flexible</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.ChangeMngmnt">
+          <h6 *ngSwitchCase="1">Change Management Practices : None</h6>
+          <h6 *ngSwitchCase="2">Change Management Practices : Absent/ad-hoc</h6>
+          <h6 *ngSwitchCase="3">Change Management Practices : Some</h6>
+          <h6 *ngSwitchCase="4">Change Management Practices : Moderate</h6>
+          <h6 *ngSwitchCase="5">Change Management Practices : Well-Established</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.Environment">
+          <h6 *ngSwitchCase="1">Work Environment : Political-Based</h6>
+          <h6 *ngSwitchCase="2">Work Environment : Conventional</h6>
+          <h6 *ngSwitchCase="3">Work Environment : Something In-between</h6>
+          <h6 *ngSwitchCase="4">Work Environment : Socially Open</h6>
+          <h6 *ngSwitchCase="5">Work Environment : Loose & Cooperative</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.TopMngmntCommitment">
+          <h6 *ngSwitchCase="1">Top Management Commitment : Almost Absent</h6>
+          <h6 *ngSwitchCase="2">Top Management Commitment : Low</h6>
+          <h6 *ngSwitchCase="3">Top Management Commitment : Average</h6>
+          <h6 *ngSwitchCase="4">Top Management Commitment : High</h6>
+          <h6 *ngSwitchCase="5">Top Management Commitment : Engaged</h6>
+        </div>
+        <br>
+        <div [ngSwitch]="this.Compny.ExectvIT">
+          <h6 *ngSwitchCase="1">Executives' IT education level : Indifferent</h6>
+          <h6 *ngSwitchCase="2">Executives' IT education level : Low</h6>
+          <h6 *ngSwitchCase="3">Executives' IT education level : Average</h6>
+          <h6 *ngSwitchCase="4">Executives' IT education level : High</h6>
+          <h6 *ngSwitchCase="5">Executives' IT education level : Excellent</h6>
+        </div>
+      </div>
+      <div class="col-xs-12 col-lg-6 col-xl-8">
+        <table mat-table [dataSource]="this.Compny.Projects" class="mat-elevation-z8">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Project Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="teamSize">
+            <th mat-header-cell *matHeaderCellDef>Team size</th>
+            <td mat-cell *matCellDef="let element"> {{element.teamSize}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedCol"></tr>
+          <tr mat-row class="project-row" *matRowDef="let row; columns: displayedCol;" (click)="onRowClick(row)"></tr>
+        </table>
+        <div class="row">
+          <span class='spacer'></span>
+          <a mat-button color="primary" routerLink="newProj">Add New Project</a>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper{
+  top: 18px;
+  height: 12px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-wrapper::after{
+  opacity: 0 !important;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+  top: 5px;
+  height: 12px;
+  border-radius: 10px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-ticks-container{
+  height: 12px;
+  border-radius: 10px;
+}
+.mat-slider.mat-slider-horizontal .mat-slider-track-background,
+.mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+  height: 100%;
+}
+.mat-slider-thumb {
+  height: 25px !important;
+  width: 25px !important;
+  background-color: white !important;
+  border: solid 2px gray !important;
+  bottom: -17px !important;
+  right: -14px !important;
+}
+.mat-slider-ticks{
+  opacity: 0 !important;
+}

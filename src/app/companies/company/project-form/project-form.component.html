@@ -1,0 +1,260 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add Project Details</mat-card-title>
+    <mat-card-subtitle>Company Name: {{this.Company.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content style="margin-left: 1cm;">
+    <form (ngSubmit)="onSaveProj(PForm)" #PForm="ngForm">
+      <div class="row">
+        <h6 style="margin:0;">Basic Characteristics</h6>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <mat-form-field class="name" hideRequiredMarker>
+            <input matInput type="text" id="name" placeholder="Name" ngModel name="name" required #name="ngModel">
+            <mat-hint>Project's Name</mat-hint>
+            <mat-error>Enter a Project Name</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="duration" hideRequiredMarker>
+            <input matInput type="number" id="duration" min="1" placeholder="Duration" ngModel name="duration" required
+              #duration="ngModel">
+            <mat-hint>Months</mat-hint>
+            <mat-error>Enter a value</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="budgetSupport" hideRequiredMarker>
+            <mat-select id="budgetSupport" name="budgetSupport" placeholder="Budget Support" ngModel required
+              #budgetSupport="ngModel">
+              <mat-option style="color:red;" value="1">Low</mat-option>
+              <mat-option style="color:yellow;" value="2">Moderate</mat-option>
+              <mat-option style="color:green;" value="3">High</mat-option>
+            </mat-select>
+            <mat-hint>Financial support of the project</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="teamSize" hideRequiredMarker>
+            <input matInput type="number" id="teamSize" min="1" placeholder="Team Size" ngModel name="teamSize" required
+              #teamSize="ngModel">
+            <mat-hint>Persons</mat-hint>
+            <mat-error>Enter a value</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="objectives" hideRequiredMarker>
+            <mat-select id="objectives" name="objectives" placeholder="Objectives" ngModel required
+              #objectives="ngModel">
+              <mat-option style="color:red;" value="1">Vague</mat-option>
+              <mat-option style="color:orange;" value="2">Poorly defined</mat-option>
+              <mat-option style="color:yellow;" value="3">Clear</mat-option>
+              <mat-option style="color:green;" value="4">Defined well</mat-option>
+            </mat-select>
+            <mat-hint>Project's goals</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="requirements" hideRequiredMarker>
+            <mat-select id="requirements" name="requirements" placeholder="Requirements" ngModel required
+              #requirements="ngModel">
+              <mat-option style="color:red;" value="1">Ambiguous</mat-option>
+              <mat-option style="color:orange;" value="2">Changing</mat-option>
+              <mat-option style="color:yellow;" value="3">Clear</mat-option>
+              <mat-option style="color:green;" value="4">Defined</mat-option>
+            </mat-select>
+            <mat-hint>Requirements specification</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <h6>Technical</h6>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <mat-form-field class="size" hideRequiredMarker>
+            <mat-select id="size" name="size" placeholder="Size" ngModel required #size="ngModel">
+              <mat-option style="color:green;" value="1">Small</mat-option>
+              <mat-option style="color:yellow;" value="2">Medium</mat-option>
+              <mat-option style="color:orange;" value="3">Large</mat-option>
+              <mat-option style="color:red;" value="4">Major</mat-option>
+            </mat-select>
+            <mat-hint>Project's size</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="tech" hideRequiredMarker>
+            <mat-select id="tech" name="tech" placeholder="Technology" ngModel required #tech="ngModel">
+              <mat-option style="color:green;" value="1">Low-Tech</mat-option>
+              <mat-option style="color:yellow;" value="2">Medium-Tech</mat-option>
+              <mat-option style="color:orange;" value="3">High-Tech</mat-option>
+              <mat-option style="color:red;" value="4">Super High-Tech</mat-option>
+            </mat-select>
+            <mat-hint>Technological complexity</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="modularity" hideRequiredMarker>
+            <mat-select id="modularity" name="modularity" placeholder="Modularity" ngModel required
+              #modularity="ngModel">
+              <mat-option style="color:red;" value="1">Low</mat-option>
+              <mat-option style="color:yellow;" value="2">Moderate</mat-option>
+              <mat-option style="color:green;" value="3">High</mat-option>
+            </mat-select>
+            <mat-hint>Ability of dividing into components</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="Infrastructure" hideRequiredMarker>
+            <mat-select id="Infrastructure" name="Infrastructure" placeholder="Infrastructure" ngModel required
+              #Infrastructure="ngModel">
+              <mat-option value="1">Not available</mat-option>
+              <mat-option value="2">Minimal infrastructure</mat-option>
+              <mat-option value="3">Inadequate for this tech</mat-option>
+              <mat-option value="4">Adequate for completion</mat-option>
+              <mat-option value="5">Adequate with extra tools</mat-option>
+            </mat-select>
+            <mat-hint>Infrastructure availability</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+<!--
+        <div class="col-xs-12" *ngIf="this.ProjectForm.value.Infrastructure>=3">
+        </div> -->
+
+      </div>
+      <div class="row">
+        <h6>Team-related</h6>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <mat-form-field class="TeamCommit" hideRequiredMarker>
+            <mat-select id="TeamCommit" name="TeamCommit" placeholder="Commitment" ngModel required
+              #TeamCommit="ngModel">
+              <mat-option style="color:red;" value="1">Very Low</mat-option>
+              <mat-option style="color:orange;" value="2">Low</mat-option>
+              <mat-option style="color:yellow;" value="3">Average</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">High</mat-option>
+              <mat-option style="color:green;" value="5">Very High</mat-option>
+            </mat-select>
+            <mat-hint>Team's Commitment</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="TeamSkill" hideRequiredMarker>
+            <mat-select id="TaskSkill" name="TaskSkill" placeholder="Skill" ngModel required #TaskSkill="ngModel">
+              <mat-option style="color:red;" value="1">Very Low</mat-option>
+              <mat-option style="color:orange;" value="2">Low</mat-option>
+              <mat-option style="color:yellow;" value="3">Average</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">High</mat-option>
+              <mat-option style="color:green;" value="5">Very High</mat-option>
+            </mat-select>
+            <mat-hint>Team's Skill for the task</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="TechKnow" hideRequiredMarker>
+            <mat-select id="TechKnow" name="TechKnow" placeholder="Technological Expertise" ngModel required
+              #TechKnow="ngModel">
+              <mat-option style="color:red;" value="1">Beginner</mat-option>
+              <mat-option style="color:orange;" value="2">Junior</mat-option>
+              <mat-option style="color:yellow;" value="3">Intermediate</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">Senior</mat-option>
+              <mat-option style="color:green;" value="5">Expert</mat-option>
+            </mat-select>
+            <mat-hint>Knowledge of used technology</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="InternalComm" hideRequiredMarker>
+            <mat-select id="InternalComm" name="InternalComm" placeholder="Internal Communication" ngModel required
+              #InternalComm="ngModel">
+              <mat-option style="color:red;" value="1">Very Low</mat-option>
+              <mat-option style="color:orange;" value="2">Low</mat-option>
+              <mat-option style="color:yellow;" value="3">Average</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">High</mat-option>
+              <mat-option style="color:green;" value="5">Very High</mat-option>
+            </mat-select>
+            <mat-hint>Level of Communication among members </mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <h6>Stakeholder-related</h6>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <mat-form-field class="Roles" hideRequiredMarker>
+            <mat-select id="Roles" name="Roles" placeholder="Roles & Responsibilities" ngModel required
+              #Roles="ngModel">
+              <mat-option style="color:red;" value="1">Not clear</mat-option>
+              <mat-option style="color:orange;" value="2">Vague or ambiguous</mat-option>
+              <mat-option style="color:yellow;" value="3">Somewhat Clear</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">Not completely Defined</mat-option>
+              <mat-option style="color:green;" value="5">Clearly Defined</mat-option>
+            </mat-select>
+            <mat-hint>Responsibilities Definition</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="ExecSponsor" hideRequiredMarker>
+            <mat-select id="ExecSponsor" name="ExecSponsor" placeholder="Executive Sponsorship" ngModel required
+              #ExecSponsor="ngModel">
+              <mat-option style="color:red;" value="1">Very Low</mat-option>
+              <mat-option style="color:orange;" value="2">Low</mat-option>
+              <mat-option style="color:yellow;" value="3">Average</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">High</mat-option>
+              <mat-option style="color:green;" value="5">Very High</mat-option>
+            </mat-select>
+            <mat-hint>Executive Management Support</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="ClientInvolv" hideRequiredMarker>
+            <mat-select id="ClientInvolv" name="ClientInvolv" placeholder="Client involvement" ngModel required
+              #ClientInvolv="ngModel">
+              <mat-option style="color:red;" value="1">Minor involvement</mat-option>
+              <mat-option style="color:orange;" value="2">Only in requirements phase</mat-option>
+              <mat-option style="color:yellow;" value="3">Somewhat involved in all phases</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">Actively involved in all phases</mat-option>
+              <mat-option style="color:green;" value="5">Active cooperation in project cycle</mat-option>
+            </mat-select>
+            <mat-hint>Client Involvement throughout the project</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field class="ClientIT" hideRequiredMarker>
+            <mat-select id="ClientIT" name="ClientIT" placeholder="Client IT knowledge" ngModel required
+              #ClientIT="ngModel">
+              <mat-option style="color:red;" value="1">Very Low</mat-option>
+              <mat-option style="color:orange;" value="2">Low</mat-option>
+              <mat-option style="color:yellow;" value="3">Average</mat-option>
+              <mat-option style="color:rgb(201, 255, 7);" value="4">High</mat-option>
+              <mat-option style="color:green;" value="5">Very High</mat-option>
+            </mat-select>
+            <mat-hint>Client IT Educational level</mat-hint>
+            <mat-error>Select an Option</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-toolbar>
+        <span class="submit"></span>
+        <button mat-raised-button color="primary" type="submit">Save Project</button>
+      </mat-toolbar>
+    </form>
+  </mat-card-content>
+</mat-card>

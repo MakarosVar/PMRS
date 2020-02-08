@@ -1,0 +1,58 @@
+mat-form-field{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+}
+.mat-form-field-infix {
+  width:100px!important;
+}
+::ng-deep .name .mat-form-field-wrapper, ::ng-deep .TeamSkill .mat-form-field-wrapper, ::ng-deep .objectives .mat-form-field-wrapper,::ng-deep .tech .mat-form-field-wrapper{
+  width:130px !important;
+}
+::ng-deep .duration .mat-form-field-wrapper{
+  width:70px !important;
+}
+::ng-deep .budgetSupport .mat-form-field-wrapper{
+  width:160px !important;
+}
+::ng-deep .size .mat-form-field-wrapper, ::ng-deep .teamSize .mat-form-field-wrapper{
+  width:80px !important;
+}
+::ng-deep .requirements .mat-form-field-wrapper, ::ng-deep .ClientIT .mat-form-field-wrapper{
+  width:150px !important;
+}
+::ng-deep .InternalComm .mat-form-field-wrapper{
+  width:210px !important;
+}
+::ng-deep .TeamCommit .mat-form-field-wrapper{
+  width:110px !important;
+}
+::ng-deep .TechKnow .mat-form-field-wrapper{
+  width:170px!important;
+}
+::ng-deep .ExecSponsor .mat-form-field-wrapper{
+  width:160px!important;
+}
+::ng-deep .ClientInvolv .mat-form-field-wrapper{
+  width:235px !important;
+}
+::ng-deep .Infrastructure .mat-form-field-wrapper{
+  width:180px !important;
+}
+h6{
+  margin-top:20px;
+}
+.submit{
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color: transparent;
+}
+mat-option{
+  text-shadow: 0px 0px 2px black;
+  /* text-shadow: -0.05px 0 white, 0 0.05px white, 0.05px 0 white, 0 -0.05px white; */
+  text-align: center;
+}

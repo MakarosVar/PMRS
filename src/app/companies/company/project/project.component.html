@@ -1,0 +1,161 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Project Name: {{this.Proj.name}}</mat-card-title>
+    <mat-card-subtitle>Company: {{this.Comp.name}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <h5>Basic Characteristics</h5>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h6>Duration: {{this.Proj.duration}} Months</h6>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.budgetSupport">
+          <h6 *ngSwitchCase="1">Budget Support: Low</h6>
+          <h6 *ngSwitchCase="2">Budget Support: Moderate</h6>
+          <h6 *ngSwitchCase="3">Budget Support: High</h6>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <h6>Team Size : {{this.Proj.teamSize}} Members</h6>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.objectives">
+          <h6 *ngSwitchCase="1">Objectives: Vague</h6>
+          <h6 *ngSwitchCase="2">Objectives: Poorly defined</h6>
+          <h6 *ngSwitchCase="3">Objectives: Clear</h6>
+          <h6 *ngSwitchCase="4">Objectives: Defined well</h6>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.Requirements">
+          <h6 *ngSwitchCase="1">Requirements: Ambiguous</h6>
+          <h6 *ngSwitchCase="2">Requirements: Changing</h6>
+          <h6 *ngSwitchCase="3">Requirements: Clear</h6>
+          <h6 *ngSwitchCase="4">Requirements: Defined</h6>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h5>Technical characteristics</h5>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.size">
+          <h6 *ngSwitchCase="1">Project Size: Small</h6>
+          <h6 *ngSwitchCase="2">Project Size: Medium</h6>
+          <h6 *ngSwitchCase="3">Project Size: Large</h6>
+          <h6 *ngSwitchCase="4">Project Size: Major</h6>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.tech">
+          <h6 *ngSwitchCase="1">Technology complexity: Low-Tech</h6>
+          <h6 *ngSwitchCase="2">Technology complexity: Medium-Tech</h6>
+          <h6 *ngSwitchCase="3">Technology complexity: High-Tech</h6>
+          <h6 *ngSwitchCase="4">Technology complexity: Super High-Tech</h6>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.modularity">
+          <h6 *ngSwitchCase="1">Modularity: Low</h6>
+          <h6 *ngSwitchCase="2">Modularity: Moderate</h6>
+          <h6 *ngSwitchCase="3">Modularity: High</h6>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div [ngSwitch]="this.Proj.Infrastructure">
+          <h6 *ngSwitchCase="1">Infrastructure: Not available</h6>
+          <h6 *ngSwitchCase="2">Infrastructure: Minimal infrastructure</h6>
+          <h6 *ngSwitchCase="3">Infrastructure: Inadequate for this tech</h6>
+          <h6 *ngSwitchCase="4">Infrastructure: Adequate for completion</h6>
+          <h6 *ngSwitchCase="5">Infrastructure: Adequate with extra tools</h6>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+        <h5>Team-related Factors</h5>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.TeamCommit">
+            <h6 *ngSwitchCase="1">Team Commitment: Very Low</h6>
+            <h6 *ngSwitchCase="2">Team Commitment: Low</h6>
+            <h6 *ngSwitchCase="3">Team Commitment: Average</h6>
+            <h6 *ngSwitchCase="4">Team Commitment: High</h6>
+            <h6 *ngSwitchCase="5">Team Commitment: Very High</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.TaskSkill">
+            <h6 *ngSwitchCase="1">Team's skill for the task: Very Low</h6>
+            <h6 *ngSwitchCase="2">Team's skill for the task: Low</h6>
+            <h6 *ngSwitchCase="3">Team's skill for the task: Average</h6>
+            <h6 *ngSwitchCase="4">Team's skill for the task: High</h6>
+            <h6 *ngSwitchCase="5">Team's skill for the task: Very High</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.TechKnow">
+            <h6 *ngSwitchCase="1">Technological Expertise: Beginner</h6>
+            <h6 *ngSwitchCase="2">Technological Expertise: Junior</h6>
+            <h6 *ngSwitchCase="3">Technological Expertise: Intermediate</h6>
+            <h6 *ngSwitchCase="4">Technological Expertise: Senior</h6>
+            <h6 *ngSwitchCase="5">Technological Expertise: Expert</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.InternalComm">
+            <h6 *ngSwitchCase="1">Internal Communication: Very Low</h6>
+            <h6 *ngSwitchCase="2">Internal Communication: Low</h6>
+            <h6 *ngSwitchCase="3">Internal Communication: Average</h6>
+            <h6 *ngSwitchCase="4">Internal Communication: High</h6>
+            <h6 *ngSwitchCase="5">Internal Communication: Very High</h6>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Stakeholder-related Factors</h5>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.Roles">
+            <h6 *ngSwitchCase="1">Roles & Responsibilities: Not clear</h6>
+            <h6 *ngSwitchCase="2">Roles & Responsibilities: Vague or ambiguous</h6>
+            <h6 *ngSwitchCase="3">Roles & Responsibilities: Somewhat Clear</h6>
+            <h6 *ngSwitchCase="4">Roles & Responsibilities: Not completely Defined</h6>
+            <h6 *ngSwitchCase="5">Roles & Responsibilities: Clearly Defined</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.ExecSponsor">
+            <h6 *ngSwitchCase="1">Executive Sponsorship: Very Low</h6>
+            <h6 *ngSwitchCase="2">Executive Sponsorship: Low</h6>
+            <h6 *ngSwitchCase="3">Executive Sponsorship: Average</h6>
+            <h6 *ngSwitchCase="4">Executive Sponsorship: High</h6>
+            <h6 *ngSwitchCase="5">Executive Sponsorship: Very High</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.ClientInvolv">
+            <h6 *ngSwitchCase="1">Client involvement: Minor involvement</h6>
+            <h6 *ngSwitchCase="2">Client involvement: Only in requirements phase</h6>
+            <h6 *ngSwitchCase="3">Client involvement: Somewhat involved in all phases</h6>
+            <h6 *ngSwitchCase="4">Client involvement: Actively involved in all phases</h6>
+            <h6 *ngSwitchCase="5">Client involvement: Active cooperation in project cycle</h6>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div [ngSwitch]="this.Proj.ClientIT">
+            <h6 *ngSwitchCase="1">Client IT knowledge: Very Low</h6>
+            <h6 *ngSwitchCase="2">Client IT knowledge: Low</h6>
+            <h6 *ngSwitchCase="3">Client IT knowledge: Average</h6>
+            <h6 *ngSwitchCase="4">Client IT knowledge: High</h6>
+            <h6 *ngSwitchCase="5">Client IT knowledge: Very High</h6>
+          </div>
+        </div>
+      </div>
+  </mat-card-content>
+</mat-card>

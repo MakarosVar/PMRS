@@ -1,0 +1,53 @@
+mat-selection-list{
+  outline: none;
+}
+.mat-subheader{
+  color: rgba(0, 0, 0, 0.568);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mat-list-base .mat-list-option{
+  width:auto;
+  height:auto;
+  font-size: 14px;
+}
+.mat-pseudo-checkbox{
+  width:auto;
+  height:auto;
+}
+mat-slider {
+  width:500px;
+  margin-left:10px;
+  margin-bottom: 10px;
+}
+mat-form-field{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.info{
+  margin-left:20px;
+}
+mat-label{
+  display:inline-block;
+  color: rgba(0, 0, 0, 0.568);
+  font-size: 14px;
+  font-weight: 600;
+}
+.slider-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+.submit{
+  flex: 1 1 auto;
+}
+mat-toolbar{
+  background-color: transparent;
+}
+.selection-error{
+  font-size: 75%;
+}
